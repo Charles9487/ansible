@@ -1,0 +1,11 @@
+- name: check ec2
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  
+  tasks:
+    - name: create GameServer04-FreeStorageSpace-Low-data
+      ec2_instance_facts:
+        instance_ids: - i-12345678
+        aws_access_key: "{{aws_access_key_id}}"
+        aws_secret_key: "{{aws_secret_access_key}}"
